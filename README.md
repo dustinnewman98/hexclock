@@ -32,7 +32,7 @@ file and generates this output. This is **not** the DOM! This is the web page!
 
 Ok, so then let's take a look at that HTML file!
 
-![html.png](filesystem:https://docs.google.com/persistent/docs/documents/1l1P4tF_dLWqJFCVHXhGImDZpDqWHkTyfu4p1l4CsVt0/image/PLACEHOLDER_7103afe05fda3b5f_1)
+![html.png](https://keep.google.com/u/1/media/v2/1zAUp87vgMHXnFgohyU8bh3oyHZTaE0GXh4Yjfcwjjjjqr1SsM7JGkJIM6AA7Yw/1In6I2B8GTzbTtbOru2QtHXEHJKU54GIEnZfXlvHAX-skB9lL5dC0zIP8stI0xA?accept=image/gif,image/jpeg,image/jpg,image/png,image/webp,audio/aac&sz=1263)
 
 As you can see, we have a `head` and a `body` and within that body we have a
 heading `h1`, an image `img`, and a paragraph `p`. This is a pretty simple web page and the structure of the HTML file is not at all complicated. But this is still **not** the DOM! What's the difference?
