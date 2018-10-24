@@ -677,4 +677,152 @@ But despite all the math weirdness, the rest from here on out is pure coding!
 
 ### Making Use of Our Time
 
+It will reassure you to know that all our values are calculated and it is
+_finally_ time put them into use.
+
+First, we wanna format our time in a way that most users are familiar with
+(including you!). For most, this is:
+
+`[hour]:[minute]:[second] AM/PM`
+
+Basically, colon-separated followed by AM or PM. (If you are doing 24 hour
+clock, you can leave off the AM/PM, but I would still recommend the colons).
+
+Remember that `time` variable we defined oh-so-long-ago? Well, it's time to
+finally use it! Use all them in fact! ✨🦄✨
+
+```javascript
+time.innerHTML = hours + ":" + minutes + ":" + seconds + " " + ampm;
+```
+
+Every DOM object has an `innerHTML` property that allows you to pass it in HTML
+to render. We aren't passing in HTML, really, just plain text, but we're going
+to use this method nonetheless.
+
+Let's pass in the RGB value we calculated into the `hex` element that's going to
+display that for us.
+
+```javascript
+hex.innerHTML = color;
+```
+
+### Pull The Lever! (Or Not)
+
+Remember how we also had the variable that we toggled depending on if the button
+was clicked? Well it's time to finally use that too.
+
+Basically, the behavior we want is that **if** the `colorIsBg` variable is set
+to true, as it is by default, we want to change the background color. If
+**not**, then we are going to change the text color. In code, this behavior
+looks like this:
+
+```javascript
+if (colorIsBg) {
+  time.style.color = "white";
+  hex.style.color = "white";
+  body.style.backgroundColor = color;
+} else {
+  body.style.backgroundColor = "white";
+  time.style.color = color;
+  hex.style.color = color;
+}
+```
+
+You have to set the `time.style.color` and other values to `white` or else they
+will never get reset and will always remain some random color, which we don't
+want!
+
+### ⚠️ Pit Stop ⚠️
+
+Your `updateClock` function should look like this:
+
+```javascript
+function updateClock() {
+  var date = new Date();
+  var hours = date.getHours();
+  var minutes = date.getMinutes();
+  var seconds = date.getSeconds();
+  var ampm = "";
+
+  var color = "rgb(" + time2color(hours, minutes, seconds) + ")";
+
+  if (hours >= 12) {
+    ampm = "PM";
+  } else {
+    ampm = "AM";
+  }
+
+  if (seconds < 10) {
+    seconds = "0" + seconds;
+  }
+  if (minutes < 10) {
+    minutes = "0" + minutes;
+  }
+
+  if (hours != 12) {
+    hours = hours % 12;
+  }
+
+  if (hours == 0) {
+    hours = 12;
+  }
+
+  time.innerHTML = hours + ":" + minutes + ":" + seconds + " " + ampm;
+
+  hex.innerHTML = color;
+
+  if (colorIsBg) {
+    time.style.color = "white";
+    hex.style.color = "white";
+    body.style.backgroundColor = color;
+  } else {
+    body.style.backgroundColor = "white";
+    time.style.color = color;
+    hex.style.color = color;
+  }
+}
+```
+
+### Finishing Touches
+
+Ooooooooookay, this is all looking super cool and neat, but we haven't actually
+_called_ the functions yet. So if you were to run this file, nothing would
+happen.
+
+Let's change that!
+
+Underneath your `updateClock` function, type out this:
+
+```javascript
+updateClock();
+setInterval(updateClock, 1000);
+```
+
+`setInterval` is a built-in JavaScript function that will call any function we
+give it at a certain time interval we give it. In this case, it will call
+`updateClock` every 1000 milliseconds (1 second).
+
+We call `updateClock` manually as a small edge case because if we don't, then
+the page will be white for a second upon loading! 😱
+
+### Finishing Finishing Touches
+
+Now that this is all done, let's finally link in the script into our
+`index.html`.
+
+Underneath your `<p id='hex'>`, right **before** the body closes, insert this:
+
+```html
+<script type="text/javascript" src="./script.js"></script>
+```
+
 ## Step 5: oooh pretty clock!
+
+Open up the `index.html` file in your browser and you should have a working Hex
+Clock! (On that note, the name is technically wrong. The original version of
+this clock used hex codes instead, but why do the extra conversion? Anyways, it
+should be RGB clock)
+
+But naming aside, throw a round of applause for yourself! 👏👏👏 You did it!
+
+Oh and by the way, do you happen to have the time? <sup>ha<sup>ha<sup>ha<sup>ha<sup>ha<sup>ha</sup></sup></sup></sup></sup></sup>
