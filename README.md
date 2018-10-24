@@ -825,4 +825,4 @@ should be RGB clock)
 
 But naming aside, throw a round of applause for yourself! 👏👏👏 You did it!
 
-Oh and by the way, do you happen to have the time? <sup>ha<sup>ha<sup>ha<sup>ha<sup>ha<sup>ha</sup></sup></sup></sup></sup></sup>
+Oh and by the way, do you happen to have the time? <sup><sup>hahahahahaha</sup></sup>
